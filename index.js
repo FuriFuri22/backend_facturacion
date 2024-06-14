@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const connectDB = require("./src/db/db")
-const productRoutes = require('./src/routes/productRoutes')
+const productRoutes = require('./src/routes/productsRoutes')
 
 const app = express();
 const PORT = 3000;
@@ -18,7 +18,7 @@ app.get('/api/test', (req, res) => {
   res.json({ message: 'Hola desde el backend!' });
 });
 
-app.use('api/product', productRoutes);
+app.use('/api', productRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
